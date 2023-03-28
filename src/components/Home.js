@@ -2,16 +2,7 @@ import { Link } from 'react-router-dom';
 import './Home.css';
 import img_1 from './images/logo.png';
 // import { Link } from "react-router-dom";
-
-
-
-
 // import Single_image from './Single_image';
-
-
-
-
-
 function Home(){
 
     return(

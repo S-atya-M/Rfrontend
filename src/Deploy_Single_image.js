@@ -1,23 +1,3 @@
-// import './components/Home.css';
-// import Navbar from './components/Navbar';
-
-// function Deploy_Single_image() {
-//   return (
-//     <>
-//      <Navbar/>
-// <section class="wrapper">
-//       <div id="stars"></div>
-//       <div id="stars2"></div>
-//       <div id="stars3"></div>
-//   </section>
-//       {/* <h1>hiiiiii</h1> */}
-//     </>
-
-//   );
-// }
-
-// export default Deploy_Single_image;
-
 import "./Deploy_Single_image.css";
 import "./components/Home.css";
 import Navbar from "./components/Navbar";
@@ -34,6 +14,8 @@ const Deploy_Single_image = () => {
   const handleChangeService = (event) => {
     setSelectedOption(event.target.value);
     setToggle(event.target.value);
+    console.log(selectedOption);
+    console.log(toggle);
     if (toggle === "opensource") {
       setData(null);
     } else {
@@ -135,6 +117,8 @@ const Deploy_Single_image = () => {
             <select value={selectedOption} onChange={handleChangeService}>
               <option value="opensource">opensource</option>
               <option value="aws">aws</option>
+              <option value="Openshift">Openshift</option>
+              <option value="ROSA">ROSA</option>
             </select>
             {/* <br />
             <p>You selected: {selectedOption}</p> */}
@@ -177,7 +161,7 @@ const Deploy_Single_image = () => {
                   </button>
                 </form>
               </div>
-            ) : (
+            ) : toggle === "aws" ? (
               //TAKING INPUT FOR AWS >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
               <div className="form">
                 <form onSubmit={handleSubmitAws} className="form_input">
@@ -243,7 +227,11 @@ const Deploy_Single_image = () => {
                   </button>
                 </form>
               </div>
-            )}
+            ) : toggle === "Openshift" ? (
+              <div>Coming soon Openshift Service</div>
+            ) : toggle === "ROSA" ? (
+              <div>Coming soon ROSA Service</div>
+            ) : null}
           </div>
           {isLoading && <div className="result-data-wrapper">Loding...</div>}
           {data ? (
